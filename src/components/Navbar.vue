@@ -1,11 +1,11 @@
 <script setup>
-// import { watchEffect } from "vue";
-// import { useMoviesStore } from "../stores/movies";
+import { watchEffect } from "vue";
+import { useMoviesStore } from "../stores/movies";
 
-// const moviesStore = useMoviesStore();
-// watchEffect(() => {
-//     moviesStore.getMovies(moviesStore.query);
-// });
+const moviesStore = useMoviesStore();
+watchEffect(() => {
+    moviesStore.getMovies(moviesStore.query);
+});
 </script>
 <template>
     <nav
@@ -64,13 +64,13 @@
                         </svg>
                         <span class="sr-only">Search icon</span>
                     </div>
-                    <!-- v-model="moviesStore.query" -->
-                     <input
+                    <input
+                        v-model="moviesStore.query"
                         type="text"
                         id="search-navbar"
                         class="block p-2 pl-10 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Search..."
-                    /> 
+                    />
                 </div>
                 <button
                     data-collapse-toggle="navbar-search"
