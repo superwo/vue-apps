@@ -1,4 +1,10 @@
+<script setup>
+import Navbar from "./components/Navbar.vue";
+</script>
+
 <template>
-  <h1>Header</h1>
-  <router-view />
+    <div class="max-w-7xl mx-auto">
+        <Navbar />
+        <router-view />
+    </div>
 </template>
