@@ -1,15 +1,23 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import { useRoute } from "vue-router";
+import { useRouter } from "vue-router";
+
+const props = defineProps({
+    id: {
+        type: String,
+        required: true,
+    },
+});
 
 const queryMovie = ref({});
 const isLoading = ref(true);
-const route = useRoute();
+const router = useRouter();
 
 onMounted(async () => {
-    const result = await fetch(
-        `http://localhost:3000/movies/${route.params.id}`
-    );
+    const result = await fetch(`http://localhost:3000/movies/${props.id}`);
+    if (result.status === 404) {
+        router.push({ name: "NotFound" });
+    }
     const response = await result.json();
     queryMovie.value = response;
     isLoading.value = false;

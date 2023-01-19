@@ -8,28 +8,34 @@ const routes = [
     {
         path: "/",
         name: "Home",
-        component: Home
+        component: Home,
     },
     {
         path: "/about",
         name: "About",
-        component: About
+        component: About,
     },
     {
         path: "/movies",
         name: "MovieList",
-        component: Movies
+        component: Movies,
     },
     {
         path: "/movies/:id",
         name: "MovieDetails",
-        component: () => import("../views/MovieDetails.vue")
+        component: () => import("../views/MovieDetails.vue"),
+        props: true,
+    },
+    {
+        path: "/:pathMatch(.*)*",
+        name: "NotFound",
+        component: () => import("../views/NotFound.vue"),
     },
 ];
 
 const router = createRouter({
     history: createWebHistory(),
-    routes
+    routes,
 });
 
 export default router;
