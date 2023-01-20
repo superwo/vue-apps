@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar.vue";
 </script>
 
 <template>
-    <div class="max-w-7xl mx-auto">
+    <div class="bg-gray-100 h-full">
         <Navbar />
         <router-view />
     </div>

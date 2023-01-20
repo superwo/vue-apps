@@ -3,22 +3,21 @@ import { watchEffect } from "vue";
 import { useMoviesStore } from "../stores/movies";
 
 const moviesStore = useMoviesStore();
-
 </script>
 <template>
     <nav
-        class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900"
+        class="bg-white border-gray-100 shadow px-2 sm:px-4 py-2.5 dark:bg-gray-900"
     >
         <div
             class="container flex flex-wrap justify-between items-center mx-auto"
             bis_skin_checked="1"
         >
-            <a href="https://flowbite.com/" class="flex items-center">
+            <router-link :to="{name: 'Home'}" class="flex items-center">
                 <span
                     class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
                     >Vue Apps</span
                 >
-            </a>
+            </router-link>
             <div class="flex md:order-2" bis_skin_checked="1">
                 <button
                     type="button"
@@ -110,11 +109,11 @@ const moviesStore = useMoviesStore();
                     </li>
                     <li>
                         <router-link
-                            :to="{ name: 'About' }"
+                            :to="{ name: 'Meals' }"
                             class="block py-2 pr-4 pl-3 text-slate-700 rounded md:bg-transparent md:p-0 dark:text-white"
                             active-class="text-blue-500"
                             aria-current="page"
-                            >About</router-link
+                            >Meals</router-link
                         >
                     </li>
                     <li>
